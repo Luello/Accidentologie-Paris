@@ -1,135 +1,96 @@
-# 🚨 Analyse d'Accidentologie à Paris
+# Analyse d'Accidentologie à Paris
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io)
-[![Data Science](https://img.shields.io/badge/Data%20Science-ML-green.svg)](https://scikit-learn.org)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 📊 Aperçu du projet
+## Description
 
-Application d'analyse d'accidentologie à Paris développée avec Streamlit, combinant **machine learning** et **visualisation interactive** pour analyser et prédire les accidents de la route.
+Ce projet analyse les données d'accidents de la route à Paris sur la période 2017-2023. Il combine plusieurs approches de machine learning (XGBoost, Prophet, SARIMA) avec des données météorologiques et de trafic pour identifier les zones à risque et prédire l'évolution des accidents.
 
-### 🎯 Fonctionnalités principales
+L'application web développée avec Streamlit permet d'explorer interactivement les données à travers des cartes, des graphiques temporels et des analyses par arrondissement.
 
-- **📈 Prédictions ML** : Modèles XGBoost, Prophet et SARIMA
-- **🗺️ Cartographie interactive** : Cartes de chaleur et clustering
-- **📊 Visualisations avancées** : Graphiques temporels et statistiques
-- **🔍 Analyse spatiale** : Points noirs par arrondissement et voie
-- **⚡ Performance optimisée** : Traitement de 7 ans de données
+## Fonctionnalités
 
-## 🚀 Technologies utilisées
+- **Prédictions** : Modèles XGBoost, Prophet et SARIMA pour prédire les accidents
+- **Cartographie** : Cartes interactives avec clustering et zones de chaleur
+- **Analyse temporelle** : Évolution des accidents par mois et année
+- **Points noirs** : Identification des zones à risque par arrondissement
+- **Performance** : Traitement optimisé de 7 ans de données (2017-2023)
 
-### Machine Learning
-- **XGBoost** : Modèle de prédiction principal
-- **Prophet** : Analyse des séries temporelles
-- **SARIMA** : Modélisation statistique avancée
+## Technologies
 
-### Visualisation & Interface
-- **Streamlit** : Interface utilisateur interactive
-- **Plotly** : Graphiques interactifs
-- **Folium** : Cartes géographiques
-- **Pandas** : Manipulation de données
+**Machine Learning :**
+- XGBoost pour les prédictions
+- Prophet pour l'analyse des séries temporelles
+- SARIMA pour la modélisation statistique
 
-### Données
-- **Accidents** : 7 ans de données (2017-2023)
-- **Météo** : Température, précipitations, vent
-- **Trafic** : Débit et concentration routière
+**Visualisation :**
+- Streamlit pour l'interface web
+- Plotly pour les graphiques interactifs
+- Folium pour les cartes géographiques
+- Pandas pour le traitement des données
 
-## 📈 Résultats techniques
+**Sources de données :**
+- Accidents de la route (2017-2023)
+- Données météorologiques
+- Données de trafic routier
 
-- **R² Score** : 0.85+ sur les prédictions
-- **MAE** : < 2 accidents/jour
-- **Performance** : Traitement de 50k+ accidents
-- **Visualisation** : Cartes interactives temps réel
+## Résultats
 
-## 🛠️ Installation
+- R² Score : 0.85+ sur les prédictions
+- MAE : < 2 accidents/jour
+- Traitement de 50k+ accidents
+- Interface interactive temps réel
 
-### Prérequis
-```bash
-Python 3.8+
-```
-
-### Installation des dépendances
-```bash
-pip install -r requirements.txt
-```
-
-### Lancement de l'application
-```bash
-streamlit run app.py
-```
-
-L'application sera accessible sur `http://localhost:8501`
-
-## 📁 Structure du projet
+## Structure du projet
 
 ```
-Geo_tree/
-├── app.py                          # Application principale Streamlit
-├── requirements.txt                # Dépendances Python
+├── app.py                          # Application principale
+├── requirements.txt                # Dépendances
 ├── README.md                       # Documentation
-├── documentation_technique.md      # Documentation technique
-├── accidentologie.parquet          # Données d'accidents optimisées
+├── accidentologie.parquet          # Données d'accidents
 ├── data_meteo.csv                  # Données météorologiques
 ├── trafic_routier_paris.csv        # Données de trafic
-└── data_accidents/                 # Données brutes par année
+└── data_accidents/                 # Données par année
     ├── annee=2017/
     ├── annee=2018/
     └── ...
 ```
 
-## 🎨 Fonctionnalités détaillées
+## Fonctionnalités détaillées
 
-### 1. Cartographie interactive
-- **Carte de chaleur** des zones à risque
-- **Clustering** des accidents
-- **Filtres** par gravité et type d'usager
-- **Zoom** et navigation fluide
+**Cartographie interactive :**
+- Cartes de chaleur des zones à risque
+- Clustering des accidents
+- Filtres par gravité et type d'usager
 
-### 2. Analyse temporelle
-- **Évolution animée** par mois/année
-- **Tendances** saisonnières
-- **Comparaisons** inter-annuelles
-- **Prédictions** futures
+**Analyse temporelle :**
+- Évolution par mois et année
+- Tendances saisonnières
+- Comparaisons inter-annuelles
 
-### 3. Analyse spatiale
-- **Points noirs** par arrondissement
-- **Analyse par voie** avec normalisation
-- **Statistiques** détaillées
-- **Évolution** temporelle par zone
+**Analyse spatiale :**
+- Points noirs par arrondissement
+- Analyse par voie avec normalisation
+- Statistiques détaillées par zone
 
-### 4. Modèles de prédiction
-- **XGBoost** : Prédictions quotidiennes
-- **Prophet** : Saisonnalité et tendances
-- **SARIMA** : Modélisation statistique
-- **Validation** croisée et métriques
+**Modèles de prédiction :**
+- XGBoost pour les prédictions quotidiennes
+- Prophet pour la saisonnalité
+- SARIMA pour la modélisation statistique
 
-## 🔧 Optimisations techniques
+## Exemples d'utilisation
 
-### Performance
-- **Format Parquet** pour les données
-- **Types optimisés** (datetime64, categories)
-- **Filtrage précoce** des données
-- **Cache Streamlit** pour les calculs lourds
-
-### Qualité des données
-- **Nettoyage** automatique des adresses
-- **Normalisation** des voies (Levenshtein)
-- **Validation** des coordonnées
-- **Gestion** des valeurs manquantes
-
-## 📊 Exemples d'utilisation
-
-### Analyse d'un arrondissement
+**Analyse d'un arrondissement :**
 ```python
 # Sélection d'un arrondissement
 arrondissement = "11"
 # Filtrage par gravité
 gravite = ["Tué", "Blessé hospitalisé"]
-# Visualisation des points noirs
 ```
 
-### Prédiction d'accidents
+**Prédiction d'accidents :**
 ```python
 # Entraînement du modèle XGBoost
 model = train_xgboost_model(train_data, test_data)
@@ -137,62 +98,17 @@ model = train_xgboost_model(train_data, test_data)
 predictions = model.predict(features_2023)
 ```
 
-## 🎯 Cas d'usage
+## Cas d'usage
 
-- **Sécurité routière** : Identification des zones à risque
-- **Urbanisme** : Planification des infrastructures
-- **Prévention** : Campagnes ciblées
-- **Recherche** : Analyse des facteurs d'accidents
+- Sécurité routière : Identification des zones à risque
+- Urbanisme : Planification des infrastructures
+- Prévention : Campagnes ciblées
+- Recherche : Analyse des facteurs d'accidents
 
-## 📈 Métriques de performance
+## Métriques de performance
 
 | Modèle | R² Score | MAE | RMSE |
 |--------|----------|-----|------|
 | XGBoost | 0.85 | 1.8 | 2.3 |
 | Prophet | 0.82 | 2.1 | 2.7 |
 | SARIMA | 0.79 | 2.4 | 3.1 |
-
-## 🔮 Évolutions possibles
-
-- **API REST** pour les données
-- **Base de données** PostgreSQL
-- **Cache Redis** pour les performances
-- **Tests automatisés** pytest
-- **Déploiement** Docker
-- **Monitoring** des performances
-
-## 📝 Documentation technique
-
-Voir [documentation_technique.md](documentation_technique.md) pour :
-- Architecture détaillée
-- Algorithmes utilisés
-- Optimisations
-- Bonnes pratiques
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! Pour contribuer :
-
-1. Fork le projet
-2. Créez une branche (`git checkout -b feature/AmazingFeature`)
-3. Committez vos changements (`git commit -m 'Add AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrez une Pull Request
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
-
-## 👨‍💻 Auteur
-
-**Votre nom** - [@votre-github](https://github.com/votre-github)
-
-## 🙏 Remerciements
-
-- **OpenData Paris** pour les données d'accidents
-- **Météo France** pour les données météorologiques
-- **Communauté Streamlit** pour l'inspiration
-
----
-
-⭐ **N'hésitez pas à donner une étoile si ce projet vous a aidé !**
